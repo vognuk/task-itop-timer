@@ -56,6 +56,7 @@ const TimerPage = () => {
 
     return (<>
         <h1>Timer</h1>
+        <Timer timePassed={timer ? timer : diff} />
         <button onClick={onStartHandler} >
             Start/Stop
         </button>
@@ -65,7 +66,7 @@ const TimerPage = () => {
         <button onClick={onResetHandler}>
             Reset
         </button>
-        <Timer timePassed={timer ? timer : diff} />
+
     </>
     )
 }
