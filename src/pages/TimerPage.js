@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { interval } from "rxjs";
+import { interval } from "rxjs"; //Опреатор создающий стримы
 import { map } from "rxjs/operators";
 import Timer from "../components/Timer/Timer";
 
@@ -12,12 +12,11 @@ const TimerPage = () => {
 
     const onStartHandler = () => {
         if (!subscription) {
-            const timerSubscription = interval(delay)
-                .pipe(map(timeValue => timeValue + 1))
-                .subscribe(timeValue => {
+            const timerSubscription = interval(delay)  // Вызиваем метод интервал 
+                .pipe(map(timeValue => timeValue + 1)) // Метод для манипуляции сртимом. map - наиболле часто используемый оператор.Трансформирует значение timeValue, которое попадет в результирующий стрим.
+                .subscribe(timeValue => {              // Подписка на стрим и получение результатов
                     setTimer(timeValue + diff);
                 });
-
             setSubscription(timerSubscription);
         } else {
             subscription.unsubscribe();
@@ -66,7 +65,6 @@ const TimerPage = () => {
         <button onClick={onResetHandler}>
             Reset
         </button>
-
     </>
     )
 }
