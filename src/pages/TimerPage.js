@@ -15,7 +15,7 @@ const TimerPage = () => {
             const timerSubscription = interval(delay)  // Вызиваем метод интервал 
                 .pipe(map(timeValue => timeValue + 1)) // Метод для манипуляции сртимом. map - наиболле часто используемый оператор.Трансформирует значение timeValue, которое попадет в результирующий стрим.
                 .subscribe(timeValue => {              // Подписка на стрим и получение результатов
-                    setTimer(timeValue + diff);
+                    setTimer(timeValue + diff);        // Передать значение diff и показать текущее значение времни. 
                 });
             setSubscription(timerSubscription);
         } else {
